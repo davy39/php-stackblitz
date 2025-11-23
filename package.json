@@ -1,0 +1,21 @@
+{
+  "name": "php-stackblitz-pure",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "postinstall": "node scripts/setup.js",
+    "php-cli": "node scripts/cli.js",
+    "php-server": "node scripts/serve.js",
+    "vite-server": "vite --open",
+    "dev": "concurrently \"npm run php-server\" \"wait-on tcp:3000 && npm run vite-server\""  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "tar": "^7.5.2",
+    "vite": "^7.2.4",
+    "wait-on": "^9.0.3"
+  },
+  "stackblitz": {
+    "installDependencies": false,
+    "startCommand": "npm install && npm run dev"
+  }
+}
