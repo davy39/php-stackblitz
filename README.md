@@ -54,23 +54,13 @@ Pour contourner le proxy de StackBlitz, ce projet n'inclut **pas** `@php-wasm/no
 L'application repose sur une chaîne de trois serveurs qui collaborent :
 
 
-Navigateur (Preview) 
-
-   ⬇️ (Port 5173)
-
-Serveur Vite (Proxy & HMR)
-
-   ⬇️ (Port 3000)
-
-Serveur Node.js (Express)
-
-   ⬇️ (Interne)
-
-Moteur PHP (WebAssembly)
-
-   ⬇️ (Mount)
-
-Système de Fichiers (/src)
+```mermaid
+graph TD
+    Browser["Navigateur (Preview)"] -->|Port 5173| Vite["Serveur Vite (Proxy & HMR)"]
+    Vite -->|Port 3000| Express["Serveur Node.js (Express)"]
+    Express -->|Interne| PHP["Moteur PHP (WebAssembly)"]
+    PHP -->|Mount| FS[("Système de Fichiers (/src)")]
+```
 
 
 ### 1. Le Serveur Interne (`scripts/serve.js`)
