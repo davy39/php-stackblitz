@@ -53,17 +53,25 @@ Pour contourner le proxy de StackBlitz, ce projet n'inclut **pas** `@php-wasm/no
 
 L'application repose sur une chaîne de trois serveurs qui collaborent :
 
-```mermaid
+
 Navigateur (Preview) 
+
    ⬇️ (Port 5173)
+
 Serveur Vite (Proxy & HMR)
+
    ⬇️ (Port 3000)
+
 Serveur Node.js (Express)
+
    ⬇️ (Interne)
+
 Moteur PHP (WebAssembly)
+
    ⬇️ (Mount)
+
 Système de Fichiers (/src)
-```
+
 
 ### 1. Le Serveur Interne (`scripts/serve.js`)
 C'est le pont entre le monde JavaScript et le monde PHP.
